@@ -3,6 +3,7 @@ Un'applicazione Python per la gestione delle aste per il fantacalcio.
 
 ## Requisiti
 Per fare funzionare in modo corretto l'applicazione occorre avere i seguenti moduli:
+
 -openpyxl che è possibile installare nel seguente modo
 ```
 pip install openpyxl 
