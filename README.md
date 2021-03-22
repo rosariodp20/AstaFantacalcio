@@ -8,7 +8,7 @@ Per fare funzionare in modo corretto l'applicazione occorre avere i seguenti mod
 pip install openpyxl 
 ```
 
-##Funzionamento
+## Funzionamento
 
 L'applicazione permette agli utenti di gestire in maniera automatica l'asta per il fantacalcio.
 Inizialmente verrà richiesto il numero di partecipanti all'asta e il numero di crediti fissati per iniziare.
@@ -19,5 +19,5 @@ Automaticamente verranno effettuate le aste per i portieri, i difensori, i centr
 Ogni squadra alla fine dell'asta dovrà avere 3 portiere, 8 difensori, 8 centrocampisti e 6 attaccanti.
 Alla fine dell'asta verrà generato un file Excel contente tutte le rose.
 
-##Gestione della fine dei crediti
+## Gestione della fine dei crediti
 Se un giocatore termina i crediti prima che termini la rosa, gli verranno assegnati d'ufficio dei giocatori random al costo di un credito, e verrà segnalato alla fine dell'asta chi ha sforato il budget.
