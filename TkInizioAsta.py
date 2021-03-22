@@ -181,7 +181,8 @@ def mostraSquadre():
 def inizializzazioneFinestra():
     global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12
     finestra = Tk()
-    finestra.geometry('1250x400')  
+    finestra.geometry('1250x800')  
+    #setta le dimensioni minime di righe e colonne
     finestra.grid_columnconfigure(0, minsize=100)
     finestra.grid_columnconfigure(1, minsize=100)
     finestra.grid_columnconfigure(2, minsize=100)
@@ -194,7 +195,15 @@ def inizializzazioneFinestra():
     finestra.grid_columnconfigure(9, minsize=100)
     finestra.grid_columnconfigure(10, minsize=100)
     finestra.grid_columnconfigure(11, minsize=100)
+    finestra.grid_rowconfigure(0, minsize=100)
+    finestra.grid_rowconfigure(1, minsize=100)
+    finestra.grid_rowconfigure(2, minsize=100)
+    finestra.grid_rowconfigure(3, minsize=100)
+    finestra.grid_rowconfigure(4, minsize=100)
     finestra.grid_rowconfigure(5, minsize=100)
+    finestra.grid_rowconfigure(6, minsize=100)
+
+    #label per le info dei giocatori
     infoSquadra1=Label(finestra, text=" ", relief=GROOVE)
     infoSquadra2=Label(finestra, text=" ", relief=GROOVE)
     infoSquadra3=Label(finestra, text=" ", relief=GROOVE)
@@ -220,10 +229,29 @@ def inizializzazioneFinestra():
     infoSquadra11.grid(column=10, row=6)
     infoSquadra12.grid(column=11, row=6)
 
+    #bottoni interfaccia
     bottoneIniziaAsta=Button(finestra, text="Inizia Asta")
     bottoneIniziaAsta.grid(column=1, row=5)
     bottoneProssimoGiocatore=Button(finestra, text="Prossimo giocatore")
     bottoneProssimoGiocatore.grid(column=10, row=5)
+
+    #label timer
+    labelTimer = Label(finestra, text="Timer: ")
+    labelTimer.grid(column=6, row=4)
+    labelTempo = Label(finestra, text="10")
+    labelTempo.grid(column=7, row=4)
+
+    #label ruolo
+    labelRuolo = Label(finestra, text="Ruolo: ")
+    labelRuolo.grid(column=6, row=3)
+    labelR = Label(finestra, text="R")
+    labelR.grid(column=7, row=3)
+
+    #label nome calciatore e squadra
+    labelNomeCalciatore = Label(finestra, text="Nome Calciatore")
+    labelNomeCalciatore.grid(column=6, row=2)
+    labelSqCalciatore = Label(finestra, text="Squadra")
+    labelSqCalciatore.grid(column=7, row=2)
 
     mostraSquadre()
     nascondiLabel()
