@@ -419,7 +419,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra1.config(text=stringa)
         elif i == 1:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -429,7 +429,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra2.config(text=stringa)
         elif i == 2:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -439,7 +439,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra3.config(text=stringa)
         elif i == 3:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -449,7 +449,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra4.config(text=stringa)
         elif i == 4:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -459,7 +459,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra5.config(text=stringa)
         elif i == 5:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -469,7 +469,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra6.config(text=stringa)
         elif i == 6:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -479,7 +479,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra7.config(text=stringa)
         elif i == 7:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -489,7 +489,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra8.config(text=stringa)
         elif i == 8:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -499,7 +499,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra9.config(text=stringa)
         elif i == 9:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -509,7 +509,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra10.config(text=stringa)
         elif i == 10:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -519,7 +519,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra11.config(text=stringa)
         elif i == 11:
             nG=listaSquadre[i].getNomeGiocatore()
@@ -529,7 +529,7 @@ def mostraSquadre():
             numD=listaSquadre[i].getNumeroDifensori()
             numC=listaSquadre[i].getNumeroCentrocampisti()
             numA=listaSquadre[i].getNumeroAttaccanti()
-            stringa=nS+"\n"+nG+"\n"+"Crediti: "+str(cr)+"\n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
+            stringa=nS+"\n"+nG+"\n"+"          Crediti: "+str(cr)+"          \n"+"Numero P: "+ str(numP)+"\n"+"Numero D: "+ str(numD)+"\n"+"Numero C: "+ str(numC)+"\n"+"Numero A: "+ str(numA)
             infoSquadra12.config(text=stringa)
 
 
