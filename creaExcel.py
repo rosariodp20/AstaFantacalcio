@@ -20,10 +20,10 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
 
     for squadra in squadre:
 
-        ListaPortieri=getListaPortieri()
-        listaDifensori=getListaDifensori()
-        listaCentrocampisti=getListaCentrocampisti()
-        listaAttaccanti=getListaAttaccanti()
+        listaPortieri=squadra.getListaPortieri()
+        listaDifensori=squadra.getListaDifensori()
+        listaCentrocampisti=squadra.getListaCentrocampisti()
+        listaAttaccanti=squadra.getListaAttaccanti()
 
         NomeSquadra=squadra.getNomeSquadra()
         Foglio[numCella].value=NomeSquadra        #A1
@@ -35,7 +35,7 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
         numRiga=str(int(numRiga)+1)
         numCella=nomeCol+numRiga          #A3
 
-        for portiere in ListaPortieri:
+        for portiere in listaPortieri:
             nomePort=portiere.getNome()
             squadraPort=portiere.getSquadra()
             costoPort=portiere.getValore()
@@ -51,7 +51,7 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
         numRiga=str(int(numRiga)+1)
         numCella=nomeCol+numRiga
 
-        for difensore in ListaDifensori:
+        for difensore in listaDifensori:
             nomeDif=difensore.getNome()
             squadraDif=difensore.getSquadra()
             costoDif=difensore.getValore()

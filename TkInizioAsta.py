@@ -5,6 +5,7 @@ from Giocatore import Giocatore
 from Squadra import Squadra
 from tkinter.font import Font
 import ListeCalciatori
+import creaExcel
 
 #funzione che gestisce la fine dell asta
 def astaFinita():
@@ -293,6 +294,7 @@ def prossimoCalciatore():
         print("asta finita")
         bottoneIniziaAsta["state"] = DISABLED
         bottoneProssimoGiocatore["state"] = DISABLED
+        creaExcel.CreaTabella(listaSquadre)
         #genera file con creaExcel.py
 
 
