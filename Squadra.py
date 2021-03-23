@@ -38,6 +38,15 @@ class Squadra:
     def aggiungiPortiere(self, giocatore):
         self.listaPortieri.append(giocatore)
 
+    def aggiungiDifensore(self, giocatore):
+        self.listaDifensori.append(giocatore)
+    
+    def aggiungiCentrocampista(self, giocatore):
+        self.listaCentrocampisti.append(giocatore)
+    
+    def aggiungiAttaccante(self, giocatore):
+        self.listaAttaccanti.append(giocatore)
+
     def scalaCrediti(self, togliere):
         crediti=self.giocatore.getCrediti()
         self.giocatore.setCrediti(crediti-togliere)

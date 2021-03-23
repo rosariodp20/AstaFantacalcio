@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from tkinter import ttk
 from Giocatore import Giocatore
 from Squadra import Squadra
 from tkinter.font import Font
@@ -18,6 +19,30 @@ def astaFinita():
                 prossimoCalciatore()
                 flagAstaIniziata=0                
                 resettaValoriAsta()
+            elif labelR.cget("text")=="D":
+                squadra.aggiungiDifensore(calciatorePOP)
+                squadra.scalaCrediti(calciatorePOP.getValore())
+                stringaFine="La squadra "+squadra.getNomeSquadra()+" ha acquistato " + calciatorePOP.getNome() + " per " + str(calciatorePOP.getValore()) + " crediti"
+                messagebox.showinfo("Asta conclusa", stringaFine)
+                prossimoCalciatore()
+                flagAstaIniziata=0                
+                resettaValoriAsta()
+            elif labelR.cget("text")=="C":
+                squadra.aggiungiCentrocampista(calciatorePOP)
+                squadra.scalaCrediti(calciatorePOP.getValore())
+                stringaFine="La squadra "+squadra.getNomeSquadra()+" ha acquistato " + calciatorePOP.getNome() + " per " + str(calciatorePOP.getValore()) + " crediti"
+                messagebox.showinfo("Asta conclusa", stringaFine)
+                prossimoCalciatore()
+                flagAstaIniziata=0                
+                resettaValoriAsta()
+            elif labelR.cget("text")=="A":
+                squadra.aggiungiAttaccante(calciatorePOP)
+                squadra.scalaCrediti(calciatorePOP.getValore())
+                stringaFine="La squadra "+squadra.getNomeSquadra()+" ha acquistato " + calciatorePOP.getNome() + " per " + str(calciatorePOP.getValore()) + " crediti"
+                messagebox.showinfo("Asta conclusa", stringaFine)
+                prossimoCalciatore()
+                flagAstaIniziata=0                
+                resettaValoriAsta()
 
 
 
@@ -25,26 +50,30 @@ def astaFinita():
 def rilancia(event):
     global flagAstaIniziata, labelTempo, labelR, labelValoreAttualeNumero, labelNomeGiocatoreUltimaOfferta
     if flagAstaIniziata==1:
-        if (event.char=="q" or event.char=="Q") and infoSquadra1.cget("text")!=" " and ((listaSquadre[0].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[0].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[0].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[0].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")):  
+        if (event.char=="q" or event.char=="Q") and infoSquadra1.cget("text")!=" " and ((listaSquadre[0].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[0].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[0].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[0].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[0].getNomeGiocatore()):  
             labelTempo.config(text="10")
-            print("ha premuto il giocatore 1")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[0].getNomeGiocatore())
         elif (event.char=="w" or event.char=="W") and infoSquadra1.cget("text")!=" " and ((listaSquadre[0].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[0].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[0].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[0].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")):  
             labelTempo.config(text="10")
-            print("ha premuto il giocatore 1")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[0].getNomeGiocatore())
-
+        elif (event.char=="a" or event.char=="A") and infoSquadra2.cget("text")!=" " and ((listaSquadre[1].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[1].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[1].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[1].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")):  
+            labelTempo.config(text="10")
+            calciatorePOP.incrementaValore(5)
+            labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
+            labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[1].getNomeGiocatore())
+        #tuttitasti
 
 #funzione che resetta la GUI ad ogni nuovo giocatore schedulato
 def resettaValoriAsta():
-    global labelNomeGiocatoreUltimaOfferta, labelValoreAttualeNumero, calciatorePOP
+    global labelNomeGiocatoreUltimaOfferta, labelValoreAttualeNumero, calciatorePOP, cbInizioAsta
     labelNomeGiocatoreUltimaOfferta.config(text="")
     labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
     mostraSquadre()
+    cbInizioAsta.current(0)
 
 def aggiornaTimer():
     global labelTempo,finestra
@@ -95,7 +124,8 @@ def prossimoCalciatore():
         calciatorePOP=listaAttaccanti.pop(0)
     else:
         print("asta finita")
-        #genera file
+        #genera file con creaExcel.py
+
 
     labelNomeCalciatore.config(text=calciatorePOP.getNome())
     labelR.config(text=calciatorePOP.getRuolo())
@@ -103,12 +133,29 @@ def prossimoCalciatore():
 
 #funzione che fa iniziare l'asta
 def inizioAsta():
-    global finestra, listaSquadre, listaGiocatori, flagAstaIniziata, labelTempo, calciatorePOP
-    ######CONTROLLI MIRO
-    flagAstaIniziata=1
-    labelTempo.config(text="10")
-    finestra.after(1000, aggiornaTimer)
-    
+    global finestra, listaSquadre, listaGiocatori, flagAstaIniziata, labelTempo, calciatorePOP, labelNomeGiocatoreUltimaOfferta, cbInizioAsta, labelValoreAttualeNumero, labelR
+
+    for g in listaSquadre:
+        if g.getNomeGiocatore==cbInizioAsta.get():
+            giocatoreInizio=g
+            break
+
+    if giocatoreInizio.getNumeroPortieri()==3 and labelR.cget("text")=="P":
+        messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
+    elif giocatoreInizio.getNumeroDifensori()==8 and labelR.cget("text")=="D":
+        messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
+    elif giocatoreInizio.getNumeroCentrocampisti()==8 and labelR.cget("text")=="C":
+        messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
+    elif giocatoreInizio.getNumeroAttaccanti()==6 and labelR.cget("text")=="A":
+        messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
+    else:
+        flagAstaIniziata=1
+        labelTempo.config(text="10")
+        calciatorePOP.incrementaValore(1)
+        labelNomeGiocatoreUltimaOfferta.config(text=cbInizioAsta.get())
+        labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
+        finestra.after(1000, aggiornaTimer)
+        
         
 
     
@@ -284,7 +331,7 @@ def mostraSquadre():
 
 #crea la finestra che servirà per gestire l'asta
 def inizializzazioneFinestra():
-    global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12, labelTempo, labelR, labelNomeGiocatoreUltimaOfferta, calciatorePOP, labelNomeCalciatore, labelSqCalciatore, labelValoreAttualeNumero
+    global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12, labelTempo, labelR, labelNomeGiocatoreUltimaOfferta, calciatorePOP, labelNomeCalciatore, labelSqCalciatore, labelValoreAttualeNumero, listaGiocatoriNome, cbInizioAsta
     finestra = Tk()
     finestra.geometry('1400x800')  
     #setta le dimensioni minime di righe e colonne
@@ -363,13 +410,18 @@ def inizializzazioneFinestra():
 
     #label ultima offerta e valore attuale
     labelNomeUltimaOfferta=Label(finestra, text="Ultima offerta:", font=myFont, fg="#330230")
-    labelNomeGiocatoreUltimaOfferta=Label(finestra, text="Nome Giocatore", font=myFont, fg="#330230")
+    labelNomeGiocatoreUltimaOfferta=Label(finestra, text="", font=myFont, fg="#330230")
     labelValoreAttuale=Label(finestra, text="Valore attuale:", font=myFont, fg="#a65e00")
     labelValoreAttualeNumero=Label(finestra, text=calciatorePOP.getValore(), font=myFont)
     labelNomeUltimaOfferta.grid(column=9, row=0)
     labelNomeGiocatoreUltimaOfferta.grid(column=9, row=1)
     labelValoreAttuale.grid(column=9, row=3)
     labelValoreAttualeNumero.grid(column=9, row=4)
+
+    #combobox per chi inizia l'asta
+    cbInizioAsta=ttk.Combobox(finestra, state="readonly", values=listaGiocatoriNome)
+    cbInizioAsta.grid(column=1, row=4)
+    cbInizioAsta.current(0)
 
     mostraSquadre()
     nascondiLabel()
@@ -382,10 +434,10 @@ def inizializzazioneFinestra():
 
 #funzione inizializzazione che viene chiamata dalla finestra precedente a cui viene passata la lista dei giocatori e la lista delle squadre
 def inizializzazione(lG:list, lS:list):
-    global listaGiocatori, listaSquadre, listaPorteri, listaDifensori, listaCentrocampisti, listaAttaccanti, flagAstaIniziata, calciatorePOP
+    global listaGiocatori, listaSquadre, listaPorteri, listaDifensori, listaCentrocampisti, listaAttaccanti, flagAstaIniziata, calciatorePOP, listaGiocatoriNome
     listaGiocatori = lG.copy()
     listaSquadre = lS.copy()
-    
+    listaGiocatoriNome=[]
     ListeCalciatori.CreaIstanzeCalciatori()
     listaAttaccanti=ListeCalciatori.getAttaccanti().copy()
     listaPorteri=ListeCalciatori.getPortieri().copy()
@@ -394,6 +446,11 @@ def inizializzazione(lG:list, lS:list):
     flagAstaIniziata=0
     calciatorePOP=listaPorteri.pop(0)
 
-    print(listaPorteri)
+    #creo lista con solo il nome dei giocatori
+    for g in listaGiocatori:
+        listaGiocatoriNome.append(g.getNome())
+
     inizializzazioneFinestra()
 
+
+#gestire il caso che inizia l'asta e nessuno offre
