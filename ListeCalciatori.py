@@ -44,17 +44,17 @@ def CreaIstanzeCalciatori():
         i=i+1
 
 def getAttaccanti():
-    #random.shuffle(ListaAtt)
+    random.shuffle(ListaAtt)
     return ListaAtt
 
 def getCentrocampisti():
-    #random.shuffle(ListaCentr)
+    random.shuffle(ListaCentr)
     return ListaCentr
 
 def getDifensori():
-    #random.shuffle(ListaDif)
+    random.shuffle(ListaDif)
     return ListaDif
 
 def getPortieri():
-    #random.shuffle(ListaPort)
+    random.shuffle(ListaPort)
     return ListaPort
