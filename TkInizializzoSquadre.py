@@ -3,6 +3,7 @@ from tkinter import messagebox
 from Giocatore import Giocatore
 from Squadra import Squadra
 import TkInizioAsta
+from tkinter.font import Font
 
 #funzione che serve per creare i giocatori e le squadre e aggiugnerli in una lista. Arrivati
 #all'ultimo giocatore da inserire viene chiamata la funzione inizializzazione di TkInzioAsta.py
@@ -31,20 +32,34 @@ def vaiAvanti(numeroGiocatore):
 def creaFinestra(numeroGiocatore):
     global finestra, entryNomeSquadra, entryNomeGiocatore
     finestra = Tk() 
-    finestra.geometry('200x150')  
+    finestra.geometry('260x210')  
     finestra.title('Asta Fantacalcio')
     giocatore="Nome Giocatore n° "+str(numeroGiocatore)
-    labelNomeGiocatore=Label(finestra, text=giocatore)
+    #chiamo la funzione per centrare
+    finestra.eval('tk::PlaceWindow . center')
+    #creo font
+    myFont = Font(family="Arial Black", size=12)
+    #creo label e entry
+    labelNomeGiocatore=Label(finestra, text=giocatore,font=myFont)
     labelNomeGiocatore.grid(column=0, row=0)
     entryNomeGiocatore=Entry(finestra)
     entryNomeGiocatore.grid(column=0, row=1)
-    labelNomeSquadra=Label(finestra, text="Nome Squadra")
+    labelNomeSquadra=Label(finestra, text="Nome Squadra",font=myFont)
     labelNomeSquadra.grid(column=0, row=2)
     entryNomeSquadra=Entry(finestra)
     entryNomeSquadra.grid(column=0, row=3)
     bottoneSubmit=Button(finestra, text="Avanti", command=lambda: vaiAvanti(numeroGiocatore)) #command=inserisci00
     bottoneSubmit.grid(column=0, row=4)
+    #setto le grandezze minime dell righe e le colonne
+    finestra.grid_columnconfigure(0, minsize=260)
+    finestra.grid_rowconfigure(0, minsize=40)
+    finestra.grid_rowconfigure(1, minsize=40)
+    finestra.grid_rowconfigure(2, minsize=40)
+    finestra.grid_rowconfigure(3, minsize=40)
+    finestra.grid_rowconfigure(4, minsize=40)
     finestra.mainloop()
+    
+
 
 
 #iniziallizazione chiamata dalla finestra precedente che ha passato il numero di crediti e il numero di partecipanti

@@ -229,14 +229,16 @@ def rilancia(event):
 
 #funzione che resetta la GUI ad ogni nuovo giocatore schedulato
 def resettaValoriAsta():
-    global labelNomeGiocatoreUltimaOfferta, labelValoreAttualeNumero, calciatorePOP, cbInizioAsta
+    global labelNomeGiocatoreUltimaOfferta, labelValoreAttualeNumero, calciatorePOP, cbInizioAsta, bottoneIniziaAsta, bottoneProssimoGiocatore
     labelNomeGiocatoreUltimaOfferta.config(text="")
     labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
     mostraSquadre()
+    bottoneIniziaAsta["state"] = NORMAL
+    bottoneProssimoGiocatore["state"] = NORMAL
     #cbInizioAsta.current(0)
 
 def aggiornaTimer():
-    global labelTempo,finestra, labelNomeGiocatoreUltimaOfferta, flagAstaIniziata
+    global labelTempo,finestra, labelNomeGiocatoreUltimaOfferta, flagAstaIniziata, bottoneProssimoGiocatore, bottoneIniziaAsta
     tem=int(labelTempo.cget("text"))
     tem-=1
     labelTempo.config(text=str(tem))
@@ -248,6 +250,8 @@ def aggiornaTimer():
         else:
             messagebox.showinfo("Asta mai iniziata", "Il giocatore è tornato in fondo alla lista")
             flagAstaIniziata=0
+            bottoneIniziaAsta["state"] = NORMAL
+            bottoneProssimoGiocatore["state"] = NORMAL
             prossimoCalciatore()
 
 
@@ -263,9 +267,7 @@ def prossimoCalciatore():
     ##### APPEND ##########
     if flagAstaIniziata==0:
         if calciatorePOP.getRuolo()=="P":
-            print(listaPorteri[0].getNome())
             listaPorteri.append(calciatorePOP)
-            print("sono dentro")
         elif calciatorePOP.getRuolo()=="D":
             listaDifensori.append(calciatorePOP)
         elif calciatorePOP.getRuolo()=="C":
@@ -289,6 +291,8 @@ def prossimoCalciatore():
         calciatorePOP=listaAttaccanti.pop(0)
     else:
         print("asta finita")
+        bottoneIniziaAsta["state"] = DISABLED
+        bottoneProssimoGiocatore["state"] = DISABLED
         #genera file con creaExcel.py
 
 
@@ -298,7 +302,7 @@ def prossimoCalciatore():
 
 #funzione che fa iniziare l'asta
 def inizioAsta():
-    global finestra, listaSquadre, listaGiocatori, flagAstaIniziata, labelTempo, calciatorePOP, labelNomeGiocatoreUltimaOfferta, cbInizioAsta, labelValoreAttualeNumero, labelR
+    global finestra, listaSquadre, listaGiocatori, flagAstaIniziata, labelTempo, calciatorePOP, labelNomeGiocatoreUltimaOfferta, cbInizioAsta, labelValoreAttualeNumero, labelR, bottoneIniziaAsta, bottoneProssimoGiocatore
    # for g in listaSquadre:
    #     if g.getNomeGiocatore==cbInizioAsta.get():
    #         global giocatoreInizio
@@ -322,6 +326,8 @@ def inizioAsta():
     #calciatorePOP.incrementaValore(1)
     #labelNomeGiocatoreUltimaOfferta.config(text=cbInizioAsta.get())
     labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
+    bottoneIniziaAsta["state"] = DISABLED
+    bottoneProssimoGiocatore["state"] = DISABLED
     finestra.after(1000, aggiornaTimer)
         
         
@@ -501,29 +507,30 @@ def mostraSquadre():
 
 #crea la finestra che servirà per gestire l'asta
 def inizializzazioneFinestra():
-    global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12, labelTempo, labelR, labelNomeGiocatoreUltimaOfferta, calciatorePOP, labelNomeCalciatore, labelSqCalciatore, labelValoreAttualeNumero, listaGiocatoriNome, cbInizioAsta
+    global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12, labelTempo, labelR, labelNomeGiocatoreUltimaOfferta, calciatorePOP, labelNomeCalciatore, labelSqCalciatore, labelValoreAttualeNumero, listaGiocatoriNome, cbInizioAsta, bottoneIniziaAsta, bottoneProssimoGiocatore
     finestra = Tk()
-    finestra.geometry('1400x800')
+    if len(listaSquadre)<5:
+        finestra.geometry('1200x450')
+    elif len(listaSquadre)<9:
+        finestra.geometry('1200x650')
+    else:
+        finestra.geometry('1200x800')
+    finestra.title('Asta Fantacalcio')
     #setta le dimensioni minime di righe e colonne
-    finestra.grid_columnconfigure(0, minsize=100)
-    finestra.grid_columnconfigure(1, minsize=100)
-    finestra.grid_columnconfigure(2, minsize=100)
-    finestra.grid_columnconfigure(3, minsize=100)
-    finestra.grid_columnconfigure(4, minsize=100)
-    finestra.grid_columnconfigure(5, minsize=100)
-    finestra.grid_columnconfigure(6, minsize=100)
-    finestra.grid_columnconfigure(7, minsize=100)
-    finestra.grid_columnconfigure(8, minsize=100)
-    finestra.grid_columnconfigure(9, minsize=100)
-    finestra.grid_columnconfigure(10, minsize=100)
-    finestra.grid_columnconfigure(11, minsize=100)
+    finestra.grid_columnconfigure(0, minsize=300)
+    finestra.grid_columnconfigure(1, minsize=300)
+    finestra.grid_columnconfigure(2, minsize=300)
+    finestra.grid_columnconfigure(3, minsize=300)
     finestra.grid_rowconfigure(0, minsize=50)
     finestra.grid_rowconfigure(1, minsize=50)
     finestra.grid_rowconfigure(2, minsize=50)
     finestra.grid_rowconfigure(3, minsize=50)
     finestra.grid_rowconfigure(4, minsize=50)
     finestra.grid_rowconfigure(5, minsize=50)
-    finestra.grid_rowconfigure(6, minsize=50)
+    finestra.grid_rowconfigure(6, minsize=150)
+    finestra.grid_rowconfigure(7, minsize=150)
+    finestra.grid_rowconfigure(8, minsize=150)
+
 
     #label per le info dei giocatori
     infoSquadra1=Label(finestra, text=" ", relief=GROOVE)
@@ -542,51 +549,51 @@ def inizializzazioneFinestra():
     infoSquadra2.grid(column=1, row=6)
     infoSquadra3.grid(column=2, row=6)
     infoSquadra4.grid(column=3, row=6)
-    infoSquadra5.grid(column=4, row=6)
-    infoSquadra6.grid(column=5, row=6)
-    infoSquadra7.grid(column=6, row=6)
-    infoSquadra8.grid(column=7, row=6)
-    infoSquadra9.grid(column=8, row=6)
-    infoSquadra10.grid(column=9, row=6)
-    infoSquadra11.grid(column=10, row=6)
-    infoSquadra12.grid(column=11, row=6)
+    infoSquadra5.grid(column=0, row=7)
+    infoSquadra6.grid(column=1, row=7)
+    infoSquadra7.grid(column=2, row=7)
+    infoSquadra8.grid(column=3, row=7)
+    infoSquadra9.grid(column=0, row=8)
+    infoSquadra10.grid(column=1, row=8)
+    infoSquadra11.grid(column=2, row=8)
+    infoSquadra12.grid(column=3, row=8)
 
     #creo font
     myFont = Font(family="Arial Black", size=16)
 
     #bottoni interfaccia
     bottoneIniziaAsta=Button(finestra, text="Inizia Asta", command=inizioAsta)
-    bottoneIniziaAsta.grid(column=1, row=5)
+    bottoneIniziaAsta.grid(column=0, row=5)
     bottoneProssimoGiocatore=Button(finestra, text="Prossimo giocatore", command=prossimoCalciatore)
-    bottoneProssimoGiocatore.grid(column=10, row=5)
+    bottoneProssimoGiocatore.grid(column=3, row=5)
 
     #label timer
     labelTimer = Label(finestra, text="Timer: ", font=myFont, fg="#077324")
-    labelTimer.grid(column=6, row=4)
+    labelTimer.grid(column=1, row=4)
     labelTempo = Label(finestra, text="2", font=myFont, fg="#077324")
-    labelTempo.grid(column=7, row=4)
+    labelTempo.grid(column=2, row=4)
 
     #label ruolo
     labelRuolo = Label(finestra, text="Ruolo: ", font=myFont, fg="#013966")
-    labelRuolo.grid(column=6, row=3)
+    labelRuolo.grid(column=1, row=3)
     labelR = Label(finestra, text=calciatorePOP.getRuolo(), font=myFont, fg="#013966")
-    labelR.grid(column=7, row=3)
+    labelR.grid(column=2, row=3)
 
     #label nome calciatore e squadra
     labelNomeCalciatore = Label(finestra, text=calciatorePOP.getNome(), font=myFont)
-    labelNomeCalciatore.grid(column=6, row=2)
+    labelNomeCalciatore.grid(column=1, row=2)
     labelSqCalciatore = Label(finestra, text=calciatorePOP.getSquadra(), fg="#5c0000", font=myFont)
-    labelSqCalciatore.grid(column=7, row=2)
+    labelSqCalciatore.grid(column=2, row=2)
 
     #label ultima offerta e valore attuale
     labelNomeUltimaOfferta=Label(finestra, text="Ultima offerta:", font=myFont, fg="#330230")
     labelNomeGiocatoreUltimaOfferta=Label(finestra, text="", font=myFont, fg="#330230")
     labelValoreAttuale=Label(finestra, text="Valore attuale:", font=myFont, fg="#a65e00")
     labelValoreAttualeNumero=Label(finestra, text=calciatorePOP.getValore(), font=myFont)
-    labelNomeUltimaOfferta.grid(column=9, row=0)
-    labelNomeGiocatoreUltimaOfferta.grid(column=9, row=1)
-    labelValoreAttuale.grid(column=9, row=3)
-    labelValoreAttualeNumero.grid(column=9, row=4)
+    labelNomeUltimaOfferta.grid(column=3, row=0)
+    labelNomeGiocatoreUltimaOfferta.grid(column=3, row=1)
+    labelValoreAttuale.grid(column=3, row=3)
+    labelValoreAttualeNumero.grid(column=3, row=4)
 
     ##combobox per chi inizia l'asta
     #cbInizioAsta=ttk.Combobox(finestra, state="readonly", values=listaGiocatoriNome)
