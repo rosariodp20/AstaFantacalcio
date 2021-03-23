@@ -3,11 +3,24 @@ from tkinter import messagebox
 from Giocatore import Giocatore
 from Squadra import Squadra
 from tkinter.font import Font
+import ListeCalciatori
 
 #funzione che resetta la GUI ad ogni nuovo giocatore schedulato
 def resettaValoriAsta():
     pass
 
+def aggiornaTimer():
+    global labelTempo,finestra
+    tem=int(labelTempo.cget("text"))
+    tem-=1
+    labelTempo.config(text=str(tem))
+    if tem!= 0:
+        finestra.after(1000, aggiornaTimer)
+
+#funzione che fa iniziare l'asta
+def inizioAsta():
+    global finestra, listaSquadre, listaGiocatori
+    finestra.after(1000, aggiornaTimer)
 
 
 
@@ -180,9 +193,9 @@ def mostraSquadre():
 
 #crea la finestra che servirà per gestire l'asta
 def inizializzazioneFinestra():
-    global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12
+    global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12, labelTempo
     finestra = Tk()
-    finestra.geometry('1250x800')  
+    finestra.geometry('1400x800')  
     #setta le dimensioni minime di righe e colonne
     finestra.grid_columnconfigure(0, minsize=100)
     finestra.grid_columnconfigure(1, minsize=100)
@@ -234,21 +247,21 @@ def inizializzazioneFinestra():
     myFont = Font(family="Arial Black", size=16)
 
     #bottoni interfaccia
-    bottoneIniziaAsta=Button(finestra, text="Inizia Asta")
+    bottoneIniziaAsta=Button(finestra, text="Inizia Asta", command=inizioAsta)
     bottoneIniziaAsta.grid(column=1, row=5)
     bottoneProssimoGiocatore=Button(finestra, text="Prossimo giocatore")
     bottoneProssimoGiocatore.grid(column=10, row=5)
 
     #label timer
-    labelTimer = Label(finestra, text="Timer: ")
+    labelTimer = Label(finestra, text="Timer: ", font=myFont, fg="#077324")
     labelTimer.grid(column=6, row=4)
-    labelTempo = Label(finestra, text="10")
+    labelTempo = Label(finestra, text="10", font=myFont, fg="#077324")
     labelTempo.grid(column=7, row=4)
 
-    #label ruolo
-    labelRuolo = Label(finestra, text="Ruolo: ")
+    #label ruolo 
+    labelRuolo = Label(finestra, text="Ruolo: ", font=myFont, fg="#013966")
     labelRuolo.grid(column=6, row=3)
-    labelR = Label(finestra, text="R")
+    labelR = Label(finestra, text="R", font=myFont, fg="#013966")
     labelR.grid(column=7, row=3)
 
     #label nome calciatore e squadra
@@ -275,7 +288,15 @@ def inizializzazioneFinestra():
 
 #funzione inizializzazione che viene chiamata dalla finestra precedente a cui viene passata la lista dei giocatori e la lista delle squadre
 def inizializzazione(lG:list, lS:list):
-    global listaGiocatori, listaSquadre
+    global listaGiocatori, listaSquadre, listaPorteri, listaDifensori, listaCentrocampisti, listaAttaccanti
     listaGiocatori = lG.copy()
     listaSquadre = lS.copy()
     inizializzazioneFinestra()
+    ListeCalciatori.CreaIstanzeCalciatori()
+    listaAttaccanti=ListeCalciatori.getAttaccanti().copy()
+    listaPorteri=ListeCalciatori.getPortieri().copy()
+    listaDifensori=ListeCalciatori.getDifensori().copy()
+    listaCentrocampisti=ListeCalciatori.getCentrocampisti().copy()
+
+    print(listaPorteri)
+

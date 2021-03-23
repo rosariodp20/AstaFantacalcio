@@ -1,8 +1,3 @@
-######### MODIFICARE IN MODO CHE VENGA CREATO UN'ISTANZA DI CALCIATORE CHE PRENDE IN ORDINE: NOME, SQUADRA, RUOLO PER OGNI CALCIATORE
-######### E VIENE AGGIUNTO NELL'APPOSITA LISTA
-######### CREARE I GET PER OGNI LISTA
-######### SCEGLIERE NOME FILE.PY DEFINITIVO
-
 from openpyxl import load_workbook
 from Calciatore import Calciatore
 
@@ -59,7 +54,4 @@ def getDifensori():
 def getPortieri():
     return ListaPort
 
-CreaIstanzeCalciatori()
 
-ListaAtt=getAttaccanti()
-print(ListaAtt)
