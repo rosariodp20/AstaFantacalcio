@@ -1,9 +1,10 @@
 class Calciatore:
 
-    def __init__(self, nome, squadra, ruolo):
+    def __init__(self, nome, squadra, ruolo, valore=0):
         self.nome=nome
         self.squadra=squadra
         self.ruolo=ruolo
+        self.valore=valore
 
     def getNome(self):
         return self.nome
@@ -13,3 +14,6 @@ class Calciatore:
 
     def getRuolo(self):
         return self.ruolo
+    
+    def getValore(self):
+        return self.valore

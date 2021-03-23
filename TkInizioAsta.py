@@ -5,6 +5,36 @@ from Squadra import Squadra
 from tkinter.font import Font
 import ListeCalciatori
 
+#funzione che gestisce la fine dell asta
+def astaFinita():
+    global flagAstaIniziata, listaSquadre, listaGiocatori, labelNomeGiocatoreUltimaOfferta, labelR, calciatorePOP
+    flagAstaIniziata=0
+    for squadra in listaSquadre:
+        if labelNomeGiocatoreUltimaOfferta.cget("text")==squadra.getNomeGiocatore():
+            if labelR.cget("text")=="P":
+                squadra.aggiungiPortiere(calciatorePOP)
+                #scalare crediti
+
+
+
+#funzione che gestisce i rilanci
+def rilancia(event):
+    global flagAstaIniziata, labelTempo, labelR  
+    if flagAstaIniziata==1:
+        if (event.char=="q" or event.char=="Q") and infoSquadra1.cget("text")!=" " and ((listaSquadre[0].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[0].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[0].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[0].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")):  
+            labelTempo.config(text="10")
+            print("ha premuto il giocatore 1")
+            #incremento variabile valore attuale +1 del calciatore
+            #mostro nella label
+            #cambio nome giocatore ultima offerta
+        elif (event.char=="w" or event.char=="W") and infoSquadra1.cget("text")!=" " and ((listaSquadre[0].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[0].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[0].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[0].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")):  
+            labelTempo.config(text="10")
+            print("ha premuto il giocatore 1")
+            #incremento variabile valore attuale +5 del calciatore
+            #mostro nella label
+            #cambio nome giocatore ultima offerta
+
+
 #funzione che resetta la GUI ad ogni nuovo giocatore schedulato
 def resettaValoriAsta():
     pass
@@ -16,11 +46,41 @@ def aggiornaTimer():
     labelTempo.config(text=str(tem))
     if tem!= 0:
         finestra.after(1000, aggiornaTimer)
+    else:
+        astaFinita()
+
+
+def prossimoCalciatore():
+    global calciatorePOP, listaPorteri, listaDifensori, listaCentrocampisti, listaAttaccanti
+    #lo appendo alla giusta lista
+    #nuova pop calciatore
+    #modifico le label
+
+    
+    #contatoreP=0
+    #contatoreD=0
+    #contatoreC=0
+    #contatoreA=0
+    #for squadra in listaSquadre:
+    #    contatoreP+=squadra.getNumeroPortieri()
+    #    contatoreD+=squadra.getNumeroDifensori()
+    #    contatoreC+=squadra.getNumeroCentrocampisti()
+    #    contatoreA+=squadra.getNumeroAttaccanti()
+    #
+    #if contatoreP<(len(listaSquadre)*3):
+
 
 #funzione che fa iniziare l'asta
 def inizioAsta():
-    global finestra, listaSquadre, listaGiocatori
+    global finestra, listaSquadre, listaGiocatori, flagAstaIniziata, labelTempo, calciatorePOP
+    ######CONTROLLI MIRO
+    flagAstaIniziata=1
+    labelTempo.config(text="10")
     finestra.after(1000, aggiornaTimer)
+    
+        
+
+    
 
 
 
@@ -193,7 +253,7 @@ def mostraSquadre():
 
 #crea la finestra che servirà per gestire l'asta
 def inizializzazioneFinestra():
-    global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12, labelTempo
+    global finestra, infoSquadra1, infoSquadra2, infoSquadra3, infoSquadra4, infoSquadra5, infoSquadra6, infoSquadra7, infoSquadra8, infoSquadra9, infoSquadra10, infoSquadra11, infoSquadra12, labelTempo, labelR, labelNomeGiocatoreUltimaOfferta, calciatorePOP
     finestra = Tk()
     finestra.geometry('1400x800')  
     #setta le dimensioni minime di righe e colonne
@@ -261,13 +321,13 @@ def inizializzazioneFinestra():
     #label ruolo 
     labelRuolo = Label(finestra, text="Ruolo: ", font=myFont, fg="#013966")
     labelRuolo.grid(column=6, row=3)
-    labelR = Label(finestra, text="R", font=myFont, fg="#013966")
+    labelR = Label(finestra, text=calciatorePOP.getRuolo(), font=myFont, fg="#013966")
     labelR.grid(column=7, row=3)
 
     #label nome calciatore e squadra
-    labelNomeCalciatore = Label(finestra, text="Nome Calciatore", font=myFont)
+    labelNomeCalciatore = Label(finestra, text=calciatorePOP.getNome(), font=myFont)
     labelNomeCalciatore.grid(column=6, row=2)
-    labelSqCalciatore = Label(finestra, text="Squadra", fg="#5c0000", font=myFont)
+    labelSqCalciatore = Label(finestra, text=calciatorePOP.getSquadra(), fg="#5c0000", font=myFont)
     labelSqCalciatore.grid(column=7, row=2)
 
     #label ultima offerta e valore attuale
@@ -283,20 +343,26 @@ def inizializzazioneFinestra():
     mostraSquadre()
     nascondiLabel()
 
+    #sempre per intercettare i tasti della tastiera
+    finestra.bind("<Key>", rilancia)
+
     finestra.mainloop()
     
 
 #funzione inizializzazione che viene chiamata dalla finestra precedente a cui viene passata la lista dei giocatori e la lista delle squadre
 def inizializzazione(lG:list, lS:list):
-    global listaGiocatori, listaSquadre, listaPorteri, listaDifensori, listaCentrocampisti, listaAttaccanti
+    global listaGiocatori, listaSquadre, listaPorteri, listaDifensori, listaCentrocampisti, listaAttaccanti, flagAstaIniziata, calciatorePOP
     listaGiocatori = lG.copy()
     listaSquadre = lS.copy()
-    inizializzazioneFinestra()
+    
     ListeCalciatori.CreaIstanzeCalciatori()
     listaAttaccanti=ListeCalciatori.getAttaccanti().copy()
     listaPorteri=ListeCalciatori.getPortieri().copy()
     listaDifensori=ListeCalciatori.getDifensori().copy()
     listaCentrocampisti=ListeCalciatori.getCentrocampisti().copy()
+    flagAstaIniziata=0
+    calciatorePOP=listaPorteri.pop()
 
     print(listaPorteri)
+    inizializzazioneFinestra()
 

@@ -35,3 +35,9 @@ class Squadra:
         num=len(self.listaAttaccanti)
         return num
     
+    def aggiungiPortiere(self, giocatore):
+        self.listaPortieri.append(giocatore)
+
+    #aggiungi difensori
+    #aggiungi centrocampisti
+    #aggiungi attaccantu
