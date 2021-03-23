@@ -150,3 +150,5 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
             nomeCol="N"
             numCella=nomeCol+numRiga
             cont=cont+1
+
+    TabellaFinale.save('RecapAsta.xlsx')
