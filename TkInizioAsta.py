@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from Giocatore import Giocatore
 from Squadra import Squadra
+from tkinter.font import Font
 
 #funzione che resetta la GUI ad ogni nuovo giocatore schedulato
 def resettaValoriAsta():
@@ -195,13 +196,13 @@ def inizializzazioneFinestra():
     finestra.grid_columnconfigure(9, minsize=100)
     finestra.grid_columnconfigure(10, minsize=100)
     finestra.grid_columnconfigure(11, minsize=100)
-    finestra.grid_rowconfigure(0, minsize=100)
-    finestra.grid_rowconfigure(1, minsize=100)
-    finestra.grid_rowconfigure(2, minsize=100)
-    finestra.grid_rowconfigure(3, minsize=100)
-    finestra.grid_rowconfigure(4, minsize=100)
-    finestra.grid_rowconfigure(5, minsize=100)
-    finestra.grid_rowconfigure(6, minsize=100)
+    finestra.grid_rowconfigure(0, minsize=50)
+    finestra.grid_rowconfigure(1, minsize=50)
+    finestra.grid_rowconfigure(2, minsize=50)
+    finestra.grid_rowconfigure(3, minsize=50)
+    finestra.grid_rowconfigure(4, minsize=50)
+    finestra.grid_rowconfigure(5, minsize=50)
+    finestra.grid_rowconfigure(6, minsize=50)
 
     #label per le info dei giocatori
     infoSquadra1=Label(finestra, text=" ", relief=GROOVE)
@@ -229,6 +230,9 @@ def inizializzazioneFinestra():
     infoSquadra11.grid(column=10, row=6)
     infoSquadra12.grid(column=11, row=6)
 
+    #creo font
+    myFont = Font(family="Arial Black", size=16)
+
     #bottoni interfaccia
     bottoneIniziaAsta=Button(finestra, text="Inizia Asta")
     bottoneIniziaAsta.grid(column=1, row=5)
@@ -248,10 +252,20 @@ def inizializzazioneFinestra():
     labelR.grid(column=7, row=3)
 
     #label nome calciatore e squadra
-    labelNomeCalciatore = Label(finestra, text="Nome Calciatore")
+    labelNomeCalciatore = Label(finestra, text="Nome Calciatore", font=myFont)
     labelNomeCalciatore.grid(column=6, row=2)
-    labelSqCalciatore = Label(finestra, text="Squadra")
+    labelSqCalciatore = Label(finestra, text="Squadra", fg="#5c0000", font=myFont)
     labelSqCalciatore.grid(column=7, row=2)
+
+    #label ultima offerta e valore attuale
+    labelNomeUltimaOfferta=Label(finestra, text="Ultima offerta:", font=myFont, fg="#330230")
+    labelNomeGiocatoreUltimaOfferta=Label(finestra, text="Nome Giocatore", font=myFont, fg="#330230")
+    labelValoreAttuale=Label(finestra, text="Valore attuale:", font=myFont, fg="#a65e00")
+    labelValoreAttualeNumero=Label(finestra, text="0", font=myFont)
+    labelNomeUltimaOfferta.grid(column=9, row=0)
+    labelNomeGiocatoreUltimaOfferta.grid(column=9, row=1)
+    labelValoreAttuale.grid(column=9, row=3)
+    labelValoreAttualeNumero.grid(column=9, row=4)
 
     mostraSquadre()
     nascondiLabel()

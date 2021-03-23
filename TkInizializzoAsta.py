@@ -32,6 +32,7 @@ bottoneSubmit=Button(finestra, text="Avanti", command=vaiAvanti)
 bottoneSubmit.grid(column=0, row=4)
 
 
+
 #serve per mantenere aperta la finestra
 finestra.mainloop()
 
