@@ -1,0 +1,65 @@
+######### MODIFICARE IN MODO CHE VENGA CREATO UN'ISTANZA DI CALCIATORE CHE PRENDE IN ORDINE: NOME, SQUADRA, RUOLO PER OGNI CALCIATORE
+######### E VIENE AGGIUNTO NELL'APPOSITA LISTA
+######### CREARE I GET PER OGNI LISTA
+######### SCEGLIERE NOME FILE.PY DEFINITIVO
+
+from openpyxl import load_workbook
+from Calciatore import Calciatore
+
+
+
+def CreaIstanzeCalciatori():
+
+    global ListaAtt, ListaCentr, ListaDif, ListaPort
+
+    workbook=load_workbook(filename='Quotazioni_Fantacalcio.xlsx')     #Apro il file excel in lettura
+    sheet=workbook['Tutti']                                            #Mi posiziono sul foglio "Tutti" del file excel che ho aperto
+
+    #sheet[C2].value      #Modo per selezionare il contenuto di un cella Excel
+    #sheet.cell(row=5, column=2).value          #Modo alternativo per selezionare il contenuto di una cella Excel
+
+    ListaAtt=list()
+    ListaCentr=list()
+    ListaDif=list()
+    ListaPort=list()
+
+    i=3
+    while i<600:
+        B='B'+str(i)
+        C='C'+str(i)
+        D='D'+str(i)
+
+        if sheet[B].value=='A':
+            Attaccante=Calciatore(sheet[C].value, sheet[D].value, 'Attaccante')
+            ListaAtt.append(Attaccante)
+
+        elif sheet[B].value=='C':
+            Centrocampista=Calciatore(sheet[C].value, sheet[D].value, 'Centrocampista')
+            ListaCentr.append(Centrocampista)
+
+        elif sheet[B].value=='P':
+            Portiere=Calciatore(sheet[C].value, sheet[D].value, 'Portiere')
+            ListaPort.append(Portiere)
+
+        elif sheet[B].value=='D':
+            Difensore=Calciatore(sheet[C].value, sheet[D].value, 'Difensore')
+            ListaDif.append(Difensore)
+
+        i=i+1
+
+def getAttaccanti():
+    return ListaAtt
+
+def getCentrocampisti():
+    return ListaCentr
+
+def getDifensori():
+    return ListaDif
+
+def getPortieri():
+    return ListaPort
+
+CreaIstanzeCalciatori()
+
+ListaAtt=getAttaccanti()
+print(ListaAtt)
