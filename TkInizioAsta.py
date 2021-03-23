@@ -53,25 +53,25 @@ def rilancia(event):
 
         #Tasti giocatore1
         if (event.char=="q" or event.char=="Q") and infoSquadra1.cget("text")!=" " and ((listaSquadre[0].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[0].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[0].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[0].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[0].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[0].getNomeGiocatore())
         elif (event.char=="w" or event.char=="W") and infoSquadra1.cget("text")!=" " and ((listaSquadre[0].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[0].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[0].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[0].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[0].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[0].getNomeGiocatore())
 
         #Tasti giocatore2
         elif (event.char=="e" or event.char=="E") and infoSquadra2.cget("text")!=" " and ((listaSquadre[1].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[1].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[1].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[1].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[1].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 2")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[1].getNomeGiocatore())
         elif (event.char=="r" or event.char=="R") and infoSquadra2.cget("text")!=" " and ((listaSquadre[1].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[1].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[1].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[1].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[1].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 2")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -79,13 +79,13 @@ def rilancia(event):
 
         #Tasti giocatore3
         elif (event.char=="t" or event.char=="T") and infoSquadra3.cget("text")!=" " and ((listaSquadre[2].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[2].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[2].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[2].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[2].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 3")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[2].getNomeGiocatore())
         elif (event.char=="y" or event.char=="Y") and infoSquadra3.cget("text")!=" " and ((listaSquadre[2].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[2].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[2].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[2].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[2].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 3")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -93,14 +93,14 @@ def rilancia(event):
 
         #Tasti giocatore4
         elif (event.char=="u" or event.char=="U") and infoSquadra4.cget("text")!=" " and ((listaSquadre[3].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[3].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[3].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[3].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[3].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 4")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[3].getNomeGiocatore())
 
         elif (event.char=="i" or event.char=="I") and infoSquadra4.cget("text")!=" " and ((listaSquadre[3].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[3].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[3].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[3].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[3].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 4")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -108,14 +108,14 @@ def rilancia(event):
 
         #Tasti giocatore5
         elif (event.char=="o" or event.char=="O") and infoSquadra5.cget("text")!=" " and ((listaSquadre[4].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[4].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[4].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[4].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[4].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 5")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[4].getNomeGiocatore())
 
         elif (event.char=="p" or event.char=="P") and infoSquadra5.cget("text")!=" " and ((listaSquadre[4].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[4].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[4].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[4].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[4].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 5")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -123,14 +123,14 @@ def rilancia(event):
 
         #Tasti giocatore6
         elif (event.char=="a" or event.char=="A") and infoSquadra6.cget("text")!=" " and ((listaSquadre[5].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[5].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[5].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[5].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[5].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 6")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[5].getNomeGiocatore())
 
         elif (event.char=="s" or event.char=="S") and infoSquadra6.cget("text")!=" " and ((listaSquadre[5].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[5].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[5].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[5].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[5].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 6")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -138,14 +138,14 @@ def rilancia(event):
 
         #Tasti giocatore7
         elif (event.char=="d" or event.char=="D") and infoSquadra7.cget("text")!=" " and ((listaSquadre[6].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[6].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[6].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[6].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[6].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 7")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[6].getNomeGiocatore())
 
         elif (event.char=="f" or event.char=="F") and infoSquadra7.cget("text")!=" " and ((listaSquadre[6].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[6].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[6].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[6].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[6].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 7")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -153,14 +153,14 @@ def rilancia(event):
 
         #Tasti giocatore8
         elif (event.char=="g" or event.char=="G") and infoSquadra8.cget("text")!=" " and ((listaSquadre[7].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[7].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[7].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[7].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[7].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 8")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[7].getNomeGiocatore())
 
         elif (event.char=="h" or event.char=="H") and infoSquadra8.cget("text")!=" " and ((listaSquadre[7].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[7].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[7].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[7].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[7].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 8")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -168,14 +168,14 @@ def rilancia(event):
 
         #Tasti giocatore9
         elif (event.char=="j" or event.char=="J") and infoSquadra9.cget("text")!=" " and ((listaSquadre[8].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[8].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[8].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[8].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[8].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 9")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[8].getNomeGiocatore())
 
         elif (event.char=="k" or event.char=="K") and infoSquadra9.cget("text")!=" " and ((listaSquadre[8].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[8].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[8].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[8].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[8].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 9")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -183,14 +183,14 @@ def rilancia(event):
 
         #Tasti giocatore10
         elif (event.char=="z" or event.char=="Z") and infoSquadra10.cget("text")!=" " and ((listaSquadre[9].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[9].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[9].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[9].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[9].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 10")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[9].getNomeGiocatore())
 
         elif (event.char=="x" or event.char=="X") and infoSquadra10.cget("text")!=" " and ((listaSquadre[9].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[9].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[9].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[9].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[9].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 10")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -198,14 +198,14 @@ def rilancia(event):
 
         #Tasti giocatore11
         elif (event.char=="c" or event.char=="C") and infoSquadra11.cget("text")!=" " and ((listaSquadre[10].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[10].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[10].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[10].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[10].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 11")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[10].getNomeGiocatore())
 
         elif (event.char=="v" or event.char=="V") and infoSquadra11.cget("text")!=" " and ((listaSquadre[10].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[10].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[10].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[10].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[10].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 11")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -213,14 +213,14 @@ def rilancia(event):
 
         #Tasti giocatore12
         elif (event.char=="b" or event.char=="B") and infoSquadra12.cget("text")!=" " and ((listaSquadre[11].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[11].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[11].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[11].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[11].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 12")
             calciatorePOP.incrementaValore(1)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
             labelNomeGiocatoreUltimaOfferta.config(text=listaSquadre[11].getNomeGiocatore())
 
         elif (event.char=="n" or event.char=="N") and infoSquadra12.cget("text")!=" " and ((listaSquadre[11].getNumeroPortieri()!=3 and labelR.cget("text")=="P") or (listaSquadre[11].getNumeroDifensori()!=8 and labelR.cget("text")=="D") or(listaSquadre[11].getNumeroCentrocampisti()!=8 and labelR.cget("text")=="C") or(listaSquadre[11].getNumeroAttaccanti()!=6 and labelR.cget("text")=="A")) and (labelNomeGiocatoreUltimaOfferta.cget("text")!=listaSquadre[11].getNomeGiocatore()):
-            labelTempo.config(text="10")
+            labelTempo.config(text="2")
             print("ha premuto il giocatore 12")
             calciatorePOP.incrementaValore(5)
             labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
@@ -233,17 +233,22 @@ def resettaValoriAsta():
     labelNomeGiocatoreUltimaOfferta.config(text="")
     labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
     mostraSquadre()
-    cbInizioAsta.current(0)
+    #cbInizioAsta.current(0)
 
 def aggiornaTimer():
-    global labelTempo,finestra
+    global labelTempo,finestra, labelNomeGiocatoreUltimaOfferta, flagAstaIniziata
     tem=int(labelTempo.cget("text"))
     tem-=1
     labelTempo.config(text=str(tem))
     if tem!= 0:
         finestra.after(1000, aggiornaTimer)
     else:
-        astaFinita()
+        if labelNomeGiocatoreUltimaOfferta.cget("text")!="":
+            astaFinita()
+        else:
+            messagebox.showinfo("Asta mai iniziata", "Il giocatore è tornato in fondo alla lista")
+            flagAstaIniziata=0
+            prossimoCalciatore()
 
 
 def prossimoCalciatore():
@@ -294,27 +299,30 @@ def prossimoCalciatore():
 #funzione che fa iniziare l'asta
 def inizioAsta():
     global finestra, listaSquadre, listaGiocatori, flagAstaIniziata, labelTempo, calciatorePOP, labelNomeGiocatoreUltimaOfferta, cbInizioAsta, labelValoreAttualeNumero, labelR
-
-    for g in listaSquadre:
-        if g.getNomeGiocatore==cbInizioAsta.get():
-            giocatoreInizio=g
-            break
-
-    if giocatoreInizio.getNumeroPortieri()==3 and labelR.cget("text")=="P":
-        messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
-    elif giocatoreInizio.getNumeroDifensori()==8 and labelR.cget("text")=="D":
-        messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
-    elif giocatoreInizio.getNumeroCentrocampisti()==8 and labelR.cget("text")=="C":
-        messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
-    elif giocatoreInizio.getNumeroAttaccanti()==6 and labelR.cget("text")=="A":
-        messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
-    else:
-        flagAstaIniziata=1
-        labelTempo.config(text="10")
-        calciatorePOP.incrementaValore(1)
-        labelNomeGiocatoreUltimaOfferta.config(text=cbInizioAsta.get())
-        labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
-        finestra.after(1000, aggiornaTimer)
+   # for g in listaSquadre:
+   #     if g.getNomeGiocatore==cbInizioAsta.get():
+   #         global giocatoreInizio
+   #         giocatoreInizio=g
+   #         break
+   # 
+   # print(giocatoreInizio.getNumeroPortieri())
+   # print(giocatoreInizio.getNomeGiocatore())
+#
+   # if giocatoreInizio.getNumeroPortieri()==3 and labelR.cget("text")=="P":
+   #     messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
+   # elif giocatoreInizio.getNumeroDifensori()==8 and labelR.cget("text")=="D":
+   #     messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
+   # elif giocatoreInizio.getNumeroCentrocampisti()==8 and labelR.cget("text")=="C":
+   #     messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
+   # elif giocatoreInizio.getNumeroAttaccanti()==6 and labelR.cget("text")=="A":
+   #     messagebox.showinfo("Errore", "Questo giocatore non può partecipare all'asta")
+   # else:
+    flagAstaIniziata=1
+    labelTempo.config(text="2")
+    #calciatorePOP.incrementaValore(1)
+    #labelNomeGiocatoreUltimaOfferta.config(text=cbInizioAsta.get())
+    labelValoreAttualeNumero.config(text=calciatorePOP.getValore())
+    finestra.after(1000, aggiornaTimer)
         
         
 
@@ -555,7 +563,7 @@ def inizializzazioneFinestra():
     #label timer
     labelTimer = Label(finestra, text="Timer: ", font=myFont, fg="#077324")
     labelTimer.grid(column=6, row=4)
-    labelTempo = Label(finestra, text="10", font=myFont, fg="#077324")
+    labelTempo = Label(finestra, text="2", font=myFont, fg="#077324")
     labelTempo.grid(column=7, row=4)
 
     #label ruolo
@@ -580,10 +588,10 @@ def inizializzazioneFinestra():
     labelValoreAttuale.grid(column=9, row=3)
     labelValoreAttualeNumero.grid(column=9, row=4)
 
-    #combobox per chi inizia l'asta
-    cbInizioAsta=ttk.Combobox(finestra, state="readonly", values=listaGiocatoriNome)
-    cbInizioAsta.grid(column=1, row=4)
-    cbInizioAsta.current(0)
+    ##combobox per chi inizia l'asta
+    #cbInizioAsta=ttk.Combobox(finestra, state="readonly", values=listaGiocatoriNome)
+    #cbInizioAsta.grid(column=1, row=4)
+    #cbInizioAsta.current(0)
 
     mostraSquadre()
     nascondiLabel()
