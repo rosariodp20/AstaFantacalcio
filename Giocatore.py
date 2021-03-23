@@ -9,3 +9,6 @@ class Giocatore:
 
     def getCrediti(self):
         return self.crediti
+
+    def setCrediti(self, cred):
+        self.crediti=cred

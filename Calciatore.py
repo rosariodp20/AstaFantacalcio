@@ -17,3 +17,6 @@ class Calciatore:
     
     def getValore(self):
         return self.valore
+
+    def incrementaValore(self, incremento):
+        self.valore+=incremento
