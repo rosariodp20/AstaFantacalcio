@@ -21,4 +21,4 @@ Ogni squadra alla fine dell'asta dovrà avere 3 portiere, 8 difensori, 8 centroc
 Alla fine dell'asta verrà generato un file Excel contente tutte le rose.
 
 ## Gestione della fine dei crediti
-Se un giocatore termina i crediti prima che termini la rosa, gli verranno assegnati d'ufficio dei giocatori random al costo di un credito, e verrà segnalato alla fine dell'asta chi ha sforato il budget.
+Il sistema è progettato in modo che ogni giocatore non può rilanciare se in caso di vincita dell'asta non avrà la possibilità di completare la rosa

@@ -317,7 +317,7 @@ def prossimoCalciatore():
     elif contatoreA<(len(listaSquadre)*6):
         calciatorePOP=listaAttaccanti.pop(0)
     else:
-        print("asta finita")
+        messagebox.showinfo("Asta finita", "L'asta è terminata. È stato creato un file con tutte le rose")
         bottoneIniziaAsta["state"] = DISABLED
         bottoneProssimoGiocatore["state"] = DISABLED
         creaExcel.CreaTabella(listaSquadre)
@@ -668,7 +668,7 @@ def inizializzazione(lG:list, lS:list):
 #d=Calciatore("dif","fas","D",0)
 #c=Calciatore("cen","fas","C",0)
 #a=Calciatore("att","fas","A",0)
-#s1=Squadra(e,"ciaoSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a])
-#s2=Squadra(b,"ehiSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a])
+#s1=Squadra(e,"ciaoSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a,a])
+#s2=Squadra(b,"ehiSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a])
 #lS=[s1,s2]
 #inizializzazione(lG,lS)

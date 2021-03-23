@@ -1,5 +1,6 @@
 import openpyxl
-
+from openpyxl.utils import get_column_letter
+from openpyxl.styles import Font
 
 
 def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
@@ -27,10 +28,12 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
 
         NomeSquadra=squadra.getNomeSquadra()
         Foglio[numCella].value=NomeSquadra        #A1
+        Foglio[numCella].font= Font(size = "20", bold=True)
 
         numRiga=str(int(numRiga)+1)
         numCella=nomeCol+numRiga         #A2
         Foglio[numCella].value="Portieri"
+        Foglio[numCella].font= Font(size = "16", bold=True, color='FFFF6600')
 
         numRiga=str(int(numRiga)+1)
         numCella=nomeCol+numRiga          #A3
@@ -39,14 +42,14 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
             nomePort=portiere.getNome()
             squadraPort=portiere.getSquadra()
             costoPort=portiere.getValore()
-
-            StringaPortiere=str(nomePort)+" "+str(costoPort)+" "+str(squadraPort)
+            StringaPortiere=str(nomePort)+"  --  "+str(costoPort)+"  --  "+str(squadraPort)
             Foglio[numCella].value=str(StringaPortiere)
 
             numRiga=str(int(numRiga)+1)
             numCella=nomeCol+numRiga
 
         Foglio[numCella].value="Difensori"
+        Foglio[numCella].font= Font(size = "16", bold=True, color='FF0000FF')
 
         numRiga=str(int(numRiga)+1)
         numCella=nomeCol+numRiga
@@ -56,13 +59,14 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
             squadraDif=difensore.getSquadra()
             costoDif=difensore.getValore()
 
-            StringaDifensore=str(nomeDif)+" "+str(costoDif)+" "+str(squadraDif)
+            StringaDifensore=str(nomeDif)+"  --  "+str(costoDif)+"  --  "+str(squadraDif)
             Foglio[numCella].value=str(StringaDifensore)
 
             numRiga=str(int(numRiga)+1)
             numCella=nomeCol+numRiga
 
         Foglio[numCella].value="Centrocampisti"
+        Foglio[numCella].font= Font(size = "16", bold=True, color='FF008000')
 
         numRiga=str(int(numRiga)+1)
         numCella=nomeCol+numRiga
@@ -72,13 +76,14 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
             squadraCentr=centrocampista.getSquadra()
             costoCentr=centrocampista.getValore()
 
-            StringaCentrocampista=str(nomeCentr)+" "+str(costoCentr)+" "+str(squadraCentr)
+            StringaCentrocampista=str(nomeCentr)+"  --  "+str(costoCentr)+"  --  "+str(squadraCentr)
             Foglio[numCella].value=str(StringaCentrocampista)
 
             numRiga=str(int(numRiga)+1)
             numCella=nomeCol+numRiga
 
         Foglio[numCella].value="Attaccanti"
+        Foglio[numCella].font= Font(size = "16", bold=True, color='FFFF0000')
 
         numRiga=str(int(numRiga)+1)
         numCella=nomeCol+numRiga
@@ -88,7 +93,7 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
             squadraAtt=attaccante.getSquadra()
             costoAtt=attaccante.getValore()
 
-            StringaAttaccante=str(nomeAtt)+" "+str(costoAtt)+" "+str(squadraAtt)
+            StringaAttaccante=str(nomeAtt)+"  --  "+str(costoAtt)+"  --  "+str(squadraAtt)
             Foglio[numCella].value=str(StringaAttaccante)
 
             numRiga=str(int(numRiga)+1)
@@ -150,5 +155,12 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
             nomeCol="N"
             numCella=nomeCol+numRiga
             cont=cont+1
+
+    ###FUNZIONE CHE ALLARGA LE COLONNE
+    for col in Foglio.columns:
+        column = col[0].column
+        let = get_column_letter(column)
+        Foglio.column_dimensions[let].width = "40"
+
 
     TabellaFinale.save('RecapAsta.xlsx')
