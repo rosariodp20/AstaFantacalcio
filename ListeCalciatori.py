@@ -26,19 +26,19 @@ def CreaIstanzeCalciatori():
         D='D'+str(i)
 
         if sheet[B].value=='A':
-            Attaccante=Calciatore(sheet[C].value, sheet[D].value, 'Attaccante')
+            Attaccante=Calciatore(sheet[C].value, sheet[D].value, 'A')
             ListaAtt.append(Attaccante)
 
         elif sheet[B].value=='C':
-            Centrocampista=Calciatore(sheet[C].value, sheet[D].value, 'Centrocampista')
+            Centrocampista=Calciatore(sheet[C].value, sheet[D].value, 'C')
             ListaCentr.append(Centrocampista)
 
         elif sheet[B].value=='P':
-            Portiere=Calciatore(sheet[C].value, sheet[D].value, 'Portiere')
+            Portiere=Calciatore(sheet[C].value, sheet[D].value, 'P')
             ListaPort.append(Portiere)
 
         elif sheet[B].value=='D':
-            Difensore=Calciatore(sheet[C].value, sheet[D].value, 'Difensore')
+            Difensore=Calciatore(sheet[C].value, sheet[D].value, 'D')
             ListaDif.append(Difensore)
 
         i=i+1
