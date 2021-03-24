@@ -1,4 +1,4 @@
-![alt text](https://github.com/rosariodp20/AstaFantacalcio/blob/main/logoFantacalcio.png?raw=true)
+<img  src="https://github.com/rosariodp20/AstaFantacalcio/blob/main/logoFantacalcio.png?raw=true=" width="200" height="120"/>
 
 # AstaFantacalcio
 Un'applicazione Python per la gestione delle aste per il fantacalcio.
