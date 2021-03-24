@@ -17,6 +17,7 @@ def vaiAvanti():
 finestra = Tk()  
 finestra.geometry('260x205')  
 finestra.title('Asta Fantacalcio')
+finestra.iconbitmap('icona.ico')
 #chiamo la funzione per centrare
 finestra.eval('tk::PlaceWindow . center')
 #creo font

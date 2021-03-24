@@ -22,6 +22,7 @@ def creaFinestra():
     finestra = Tk()  
     finestra.geometry('260x150')  
     finestra.title('Asta Fantacalcio')
+    finestra.iconbitmap('icona.ico')
     #chiamo la funzione per centrare
     finestra.eval('tk::PlaceWindow . center')
     #creo font

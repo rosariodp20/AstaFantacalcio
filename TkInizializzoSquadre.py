@@ -43,6 +43,7 @@ def creaFinestra(numeroGiocatore):
     finestra = Tk() 
     finestra.geometry('260x210')  
     finestra.title('Asta Fantacalcio')
+    finestra.iconbitmap('icona.ico')
     giocatore="Nome Giocatore n° "+str(numeroGiocatore)
     #chiamo la funzione per centrare
     finestra.eval('tk::PlaceWindow . center')
