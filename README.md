@@ -1,12 +1,12 @@
 <img  src="https://github.com/rosariodp20/AstaFantacalcio/blob/main/logoFantacalcio.png?raw=true=" width="200" height="120"/>
 
 # AstaFantacalcio
-Un'applicazione Python per la gestione delle aste per il fantacalcio.
+A Python application for managing fantasy soccer auctions. 
 
 ## Requisiti
 Per fare funzionare in modo corretto l'applicazione occorre avere i seguenti moduli:
 
--openpyxl che è possibile installare nel seguente modo
+-openpyxl che è possibile installare nel seguente modo:
 ```
 pip install openpyxl 
 ```
@@ -23,4 +23,4 @@ Ogni squadra alla fine dell'asta dovrà avere 3 portiere, 8 difensori, 8 centroc
 Alla fine dell'asta verrà generato un file Excel contente tutte le rose.
 
 ## Gestione della fine dei crediti
-Il sistema è progettato in modo che ogni giocatore non può rilanciare se in caso di vincita dell'asta non avrà la possibilità di completare la rosa
+Il sistema è progettato in modo che ogni giocatore non può rilanciare se in caso di vincita dell'asta non avrà la possibilità di completare la rosa.
