@@ -1,3 +1,5 @@
+![alt text](https://github.com/rosariodp20/AstaFantacalcio/blob/main/logoFantacalcio.png?raw=true)
+
 # AstaFantacalcio
 Un'applicazione Python per la gestione delle aste per il fantacalcio.
 
