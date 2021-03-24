@@ -1,23 +1,18 @@
 import openpyxl
-from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font
-
+from openpyxl.styles import Alignment
+from openpyxl.utils import get_column_letter
 
 def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
 
     TabellaFinale=openpyxl.Workbook()
     Foglio=TabellaFinale.active
     Foglio.title="Tabella Squadre"
-    #TabellaFinale.save('RecapAsta.xlsx')
-    nomeCol="A"
-    numRiga=str(1)
-    numCella=nomeCol+numRiga
-    #ListaPortieri=list()
-    #listaDifensori=list()
-    #listaCentrocampisti=list()
-    #listaAttaccanti=list()
 
-    cont=0
+    numSquadre=len(squadre)
+
+    c=1
+    r=3
 
     for squadra in squadre:
 
@@ -26,141 +21,115 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
         listaCentrocampisti=squadra.getListaCentrocampisti()
         listaAttaccanti=squadra.getListaAttaccanti()
 
-        NomeSquadra=squadra.getNomeSquadra()
-        Foglio[numCella].value=NomeSquadra        #A1
-        Foglio[numCella].font= Font(size = "20", bold=True)
-
-        numRiga=str(int(numRiga)+1)
-        numCella=nomeCol+numRiga         #A2
-        Foglio[numCella].value="Portieri"
-        Foglio[numCella].font= Font(size = "16", bold=True, color='FFFF6600')
-
-        numRiga=str(int(numRiga)+1)
-        numCella=nomeCol+numRiga          #A3
-
         for portiere in listaPortieri:
+
             nomePort=portiere.getNome()
             squadraPort=portiere.getSquadra()
-            costoPort=portiere.getValore()
-            StringaPortiere=str(nomePort)+"  --  "+str(costoPort)+"  --  "+str(squadraPort)
-            Foglio[numCella].value=str(StringaPortiere)
+            valorePort=portiere.getValore()
 
-            numRiga=str(int(numRiga)+1)
-            numCella=nomeCol+numRiga
+            Foglio.cell(row=r,column=c).value=nomePort
+            Foglio.cell(row=r,column=c+1).value=squadraPort
+            Foglio.cell(row=r,column=c+2).value=valorePort
 
-        Foglio[numCella].value="Difensori"
-        Foglio[numCella].font= Font(size = "16", bold=True, color='FF0000FF')
+            r=r+1
 
-        numRiga=str(int(numRiga)+1)
-        numCella=nomeCol+numRiga
-
+        r=7
         for difensore in listaDifensori:
+
             nomeDif=difensore.getNome()
             squadraDif=difensore.getSquadra()
-            costoDif=difensore.getValore()
+            valoreDif=difensore.getValore()
 
-            StringaDifensore=str(nomeDif)+"  --  "+str(costoDif)+"  --  "+str(squadraDif)
-            Foglio[numCella].value=str(StringaDifensore)
+            Foglio.cell(row=r,column=c).value=nomeDif
+            Foglio.cell(row=r,column=c+1).value=squadraDif
+            Foglio.cell(row=r,column=c+2).value=valoreDif
 
-            numRiga=str(int(numRiga)+1)
-            numCella=nomeCol+numRiga
+            r=r+1
 
-        Foglio[numCella].value="Centrocampisti"
-        Foglio[numCella].font= Font(size = "16", bold=True, color='FF008000')
-
-        numRiga=str(int(numRiga)+1)
-        numCella=nomeCol+numRiga
-
+        r=16
         for centrocampista in listaCentrocampisti:
+
             nomeCentr=centrocampista.getNome()
             squadraCentr=centrocampista.getSquadra()
-            costoCentr=centrocampista.getValore()
+            valoreCentr=centrocampista.getValore()
 
-            StringaCentrocampista=str(nomeCentr)+"  --  "+str(costoCentr)+"  --  "+str(squadraCentr)
-            Foglio[numCella].value=str(StringaCentrocampista)
+            Foglio.cell(row=r,column=c).value=nomeCentr
+            Foglio.cell(row=r,column=c+1).value=squadraCentr
+            Foglio.cell(row=r,column=c+2).value=valoreCentr
 
-            numRiga=str(int(numRiga)+1)
-            numCella=nomeCol+numRiga
+            r=r+1
 
-        Foglio[numCella].value="Attaccanti"
-        Foglio[numCella].font= Font(size = "16", bold=True, color='FFFF0000')
-
-        numRiga=str(int(numRiga)+1)
-        numCella=nomeCol+numRiga
-
+        r=25
         for attaccante in listaAttaccanti:
+
             nomeAtt=attaccante.getNome()
             squadraAtt=attaccante.getSquadra()
-            costoAtt=attaccante.getValore()
+            valoreAtt=attaccante.getValore()
 
-            StringaAttaccante=str(nomeAtt)+"  --  "+str(costoAtt)+"  --  "+str(squadraAtt)
-            Foglio[numCella].value=str(StringaAttaccante)
+            Foglio.cell(row=r,column=c).value=nomeAtt
+            Foglio.cell(row=r,column=c+1).value=squadraAtt
+            Foglio.cell(row=r,column=c+2).value=valoreAtt
 
-            numRiga=str(int(numRiga)+1)
-            numCella=nomeCol+numRiga
+            r=r+1
 
-        numRiga=str(1)
+        r=3
+        c=c+3
 
-        if cont==0:
-            nomeCol="B"
-            numCella=nomeCol+numRiga
-            cont=cont+1
 
-        elif cont==1:
-            nomeCol="C"
-            numCella=nomeCol+numRiga
-            cont=cont+1
+    a=1
+    b=1
+    c=1
+    d=3
 
-        elif cont==2:
-            nomeCol="D"
-            numCella=nomeCol+numRiga
-            cont=cont+1
+    for i in range(numSquadre):
+        Foglio.merge_cells(start_row=a,start_column=b,end_row=c,end_column=d)
+        Foglio.merge_cells(start_row=a+1,start_column=b,end_row=c+1,end_column=d)
+        Foglio.merge_cells(start_row=a+5,start_column=b,end_row=c+5,end_column=d)
+        Foglio.merge_cells(start_row=a+14,start_column=b,end_row=c+14,end_column=d)
+        Foglio.merge_cells(start_row=a+23,start_column=b,end_row=c+23,end_column=d)
+        Foglio.cell(row=2,column=b).value="Portieri"
+        Foglio.cell(row=2,column=b).font=Font(bold=True,size=12,color='FFFF6600')
+        Foglio.cell(row=2,column=b).alignment=Alignment(horizontal='center')
+        Foglio.cell(row=6,column=b).value="Difensori"
+        Foglio.cell(row=6,column=b).font=Font(bold=True,size=12,color='FF0000FF')
+        Foglio.cell(row=6,column=b).alignment=Alignment(horizontal='center')
+        Foglio.cell(row=15,column=b).value="Centrocampisti"
+        Foglio.cell(row=15,column=b).font=Font(bold=True,size=12,color='FF008000')
+        Foglio.cell(row=15,column=b).alignment=Alignment(horizontal='center')
+        Foglio.cell(row=24,column=b).value="Attaccanti"
+        Foglio.cell(row=24,column=b).font=Font(bold=True,size=12,color='FFFF0000')
+        Foglio.cell(row=24,column=b).alignment=Alignment(horizontal='center')
 
-        elif cont==3:
-            nomeCol="E"
-            numCella=nomeCol+numRiga
-            cont=cont+1
+        letteraColonna=get_column_letter
 
-        elif cont==4:
-            nomeCol="F"
-            numCella=nomeCol+numRiga
-            cont=cont+1
+        SquadraTemp=squadre[i]
+        nomeSquadra=SquadraTemp.getNomeSquadra()
+        Foglio.cell(row=1,column=b).value=nomeSquadra
+        Foglio.cell(row=1,column=b).font=Font(bold=True,size=18)
+        Foglio.cell(row=1,column=b).alignment=Alignment(horizontal='center')
 
-        elif cont==5:
-            nomeCol="G"
-            numCella=nomeCol+numRiga
-            cont=cont+1
+        b=b+3
+        d=d+3
 
-        elif cont==6:
-            nomeCol="H"
-            numCella=nomeCol+numRiga
-            cont=cont+1
 
-        elif cont==7:
-            nomeCol="I"
-            numCella=nomeCol+numRiga
-            cont=cont+1
-
-        elif cont==8:
-            nomeCol="L"
-            numCella=nomeCol+numRiga
-            cont=cont+1
-
-        elif cont==9:
-            nomeCol="M"
-            numCella=nomeCol+numRiga
-            cont=cont+1
-
-        elif cont==10:
-            nomeCol="N"
-            numCella=nomeCol+numRiga
-            cont=cont+1
-
-    ###FUNZIONE CHE ALLARGA LE COLONNE
     for col in Foglio.columns:
-        column = col[0].column
-        let = get_column_letter(column)
-        Foglio.column_dimensions[let].width = "40"
+        column=col[0].column
+        if column in [1,4,7,10,13,16,19,22,25,28,31,34,37]:
+            let=get_column_letter(column)
+            Foglio.column_dimensions[let].width="17"
+
+    TabellaFinale.save('SquadreFantacalcio.xlsx')
 
 
-    TabellaFinale.save('RecapAsta.xlsx')
+
+
+
+
+'''
+    for i in range(Foglio.columns):
+        column=
+        column=numColonna.column
+        letteraCol=get_column_letter(column)
+        Foglio.column_dimensions[letteraCol].width="40"
+        numColonna=numColonna+3
+'''
