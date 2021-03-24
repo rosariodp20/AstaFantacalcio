@@ -672,14 +672,14 @@ def inizializzazione(lG:list, lS:list):
 
 
 #####TESTING#####
-e=Giocatore("ciao",200)
-b=Giocatore("ehi",300)
-lG=[e,b]
-p=Calciatore("por","fas","P",0)
-d=Calciatore("dif","fas","D",0)
-c=Calciatore("cen","fas","C",0)
-a=Calciatore("att","fas","A",0)
-s1=Squadra(e,"ciaoSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a,a])
-s2=Squadra(b,"ehiSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a])
-lS=[s1,s2]
-inizializzazione(lG,lS)
+#e=Giocatore("ciao",200)
+#b=Giocatore("ehi",300)
+#lG=[e,b]
+#p=Calciatore("por","fas","P",0)
+#d=Calciatore("dif","fas","D",0)
+#c=Calciatore("cen","fas","C",0)
+#a=Calciatore("att","fas","A",0)
+#s1=Squadra(e,"ciaoSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a,a])
+#s2=Squadra(b,"ehiSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a])
+#lS=[s1,s2]
+#inizializzazione(lG,lS)
