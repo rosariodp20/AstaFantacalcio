@@ -49,4 +49,3 @@ def inizializzazione(lS):
     for s in lS:
         listaSquadre.append(s.getNomeSquadra())
     creaFinestra()
-
