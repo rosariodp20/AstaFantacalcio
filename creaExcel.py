@@ -119,17 +119,3 @@ def CreaTabella(squadre):   #mi importo tutte le istanze delle squadre
             Foglio.column_dimensions[let].width="17"
 
     TabellaFinale.save('SquadreFantacalcio.xlsx')
-
-
-
-
-
-
-'''
-    for i in range(Foglio.columns):
-        column=
-        column=numColonna.column
-        letteraCol=get_column_letter(column)
-        Foglio.column_dimensions[letteraCol].width="40"
-        numColonna=numColonna+3
-'''
