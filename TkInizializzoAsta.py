@@ -4,7 +4,7 @@ from tkinter import ttk
 import TkInizializzoSquadre
 from tkinter.font import Font
 
-
+ 
 #funzione chiamata dal bottoneSubmit che serve a chiudere la finestra ed aprire la successiva
 def vaiAvanti():
     global finestra, numeroCrediti, numeroPartecipanti, cbNumeroCrediti, cbNumeroPartecipanti

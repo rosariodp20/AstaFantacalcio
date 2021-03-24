@@ -7,6 +7,12 @@ from Calciatore import Calciatore
 from tkinter.font import Font
 import ListeCalciatori
 import creaExcel
+import TkVisualizzaListaSquadre
+
+def visualizzaSquadre():
+    global listaSquadre
+    TkVisualizzaListaSquadre.inizializzazione(listaSquadre)
+    
 
 #funzione che gestisce la fine dell asta
 def astaFinita():
@@ -623,6 +629,12 @@ def inizializzazioneFinestra():
     labelValoreAttuale.grid(column=3, row=3)
     labelValoreAttualeNumero.grid(column=3, row=4)
 
+    ##bottone visualizza rose
+    bottoneGuardaRosa=Button(finestra, text="Guarda Rosa", command=visualizzaSquadre)
+    bottoneGuardaRosa.grid(column=0, row=0)
+
+
+
     ##combobox per chi inizia l'asta
     #cbInizioAsta=ttk.Combobox(finestra, state="readonly", values=listaGiocatoriNome)
     #cbInizioAsta.grid(column=1, row=4)
@@ -654,21 +666,20 @@ def inizializzazione(lG:list, lS:list):
     #creo lista con solo il nome dei giocatori
     for g in listaGiocatori:
         listaGiocatoriNome.append(g.getNome())
-
     inizializzazioneFinestra()
 
 
 
 
 #####TESTING#####
-#e=Giocatore("ciao",200)
-#b=Giocatore("ehi",300)
-#lG=[e,b]
-#p=Calciatore("por","fas","P",0)
-#d=Calciatore("dif","fas","D",0)
-#c=Calciatore("cen","fas","C",0)
-#a=Calciatore("att","fas","A",0)
-#s1=Squadra(e,"ciaoSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a,a])
-#s2=Squadra(b,"ehiSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a])
-#lS=[s1,s2]
-#inizializzazione(lG,lS)
+e=Giocatore("ciao",200)
+b=Giocatore("ehi",300)
+lG=[e,b]
+p=Calciatore("por","fas","P",0)
+d=Calciatore("dif","fas","D",0)
+c=Calciatore("cen","fas","C",0)
+a=Calciatore("att","fas","A",0)
+s1=Squadra(e,"ciaoSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a,a])
+s2=Squadra(b,"ehiSquad",[p,p,p],[d,d,d,d,d,d,d,d],[c,c,c,c,c,c,c,c],[a,a,a,a,a])
+lS=[s1,s2]
+inizializzazione(lG,lS)
