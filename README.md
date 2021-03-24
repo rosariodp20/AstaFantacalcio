@@ -6,10 +6,16 @@ A Python application for managing fantasy soccer auctions.
 ## Requisiti
 Per fare funzionare in modo corretto l'applicazione occorre avere i seguenti moduli:
 
--openpyxl che è possibile installare nel seguente modo:
+-openpyxl che è possibile installare lanciando il seguente comando da terminale:
 ```
 pip install openpyxl 
 ```
+
+-pillow che è possibile installare lanciando il seguente comando da terminale:
+```
+pip install pillow 
+```
+
 
 ## Funzionamento
 
